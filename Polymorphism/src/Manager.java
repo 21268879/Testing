@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class Manager extends Staff {
-    private double memberSalary = 35;
+    private double memberSalary = 35.50;
         public static void main(String[] args) {
             double projectDays;
             double estimatedCosts;
