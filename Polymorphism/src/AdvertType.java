@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 
-public class AdvertType {
+public class AdvertType {	
     private int advertType;
     private ArrayList<Staff> projectStaffList;
-
+    //Adding new features
+	
     public int getAdvertType() {
         return advertType;
     }
