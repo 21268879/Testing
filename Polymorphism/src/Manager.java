@@ -6,45 +6,63 @@ import java.util.ArrayList;
 
 public class Manager extends Staff {
     private double memberSalary = 35.50;
-        public static void main(String[] args) {
-            double projectDays;
-            double estimatedCosts;
-            int countID;
 
+        public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
             Project testProject = new Project();
 
+
             //ASK FOR PROJECT ID
-            for (countID = 0; countID < 6; countID++) {
+            for (int x = 0; x < 6; x++) {
                 System.out.println("Enter the ID of the project you would like to estimate the costs for.\n");
-                int projID = sc.nextInt();
+                int projectID = sc.nextInt();
 
                 //GET START AND END PROJECT DATES
-                if (projID == testProject.getProjectID()) {
+                if (projectID == testProject.getProjectID()) {
                     System.out.println("Enter the start date of the promotion: ");
-                    String stDate = sc.nextLine();
+                    String projectStart = sc.nextLine();
                     sc.nextLine();
                     System.out.println("Enter the end date of the promotion: ");
-                    String enDate = sc.nextLine();
+                    String projectEnd = sc.nextLine();
+                    testProject.setStartDate(projectStart);
+                    testProject.setEndDate(projectEnd);
 
-                    testProject.setStartDate(stDate);
-                    testProject.setEndDate(enDate);
-                    countID = 6;
-                } else if (projID != testProject.getProjectID() || countID < 5) {
+                    //CALCULATE and SET PROJECT HOURS
+                    Calculator calculate = new Calculator(testProject.getStartDate(), testProject.getEndDate());
+                    testProject.setHours(calculate.calculateHours());
+
+
+                        //ADVERT TYPES
+                    boolean finishAdding = false;
+                    int arrayLoop = 0;
+                    while (arrayLoop <=5 && finishAdding == false){
+                             System.out.println("To add an advert into this project," +" type one of the following:\nWeb-based\nEmail\nTV\nRadio\nNewspaper\nMagasine");
+                             String chosenAd = sc.nextLine();
+                             testProject.populateArrayList(chosenAd);
+                        arrayLoop++;
+                            if(arrayLoop<=5){
+                             System.out.println("Would you like to add more advert types?\n" +"Type yes or no.");
+                             String adOption = sc.nextLine();
+                                switch (adOption) {
+                                    case "Yes": finishAdding = false;
+                                        break;
+                                    case "yes": finishAdding =false;
+                                        break;
+                                    case "No": finishAdding=true;
+                                        break;
+                                    case"no": finishAdding=true;
+                                        break;
+                                    default: finishAdding=false;
+                                        break;
+                                }
+                             }
+                    }
+                    double projectCost = testProject.getHours()*testProject.getArraySize();
+                    testProject.setCostEstimate(projectCost);
+                    x = 6;
+                    System.out.println("Project estimate is: £" + testProject.getCostEstimate() + "\nNumber of hours spend on the project: " + testProject.getHours());
+                }else if (projectID != testProject.getProjectID())
                     System.out.println("The project ID does not exist.");
-                }else{
-                    System.out.println("Please re-run the program, you have entered 5 invalid project IDs.\n");
-                }
             }
-
-            //CALCULATE DAYS
-            Calculator estimateCosts = new Calculator(testProject.getStartDate(), testProject.getEndDate());
-            projectDays = estimateCosts.calculateHours();
-            testProject.setNumberOfDays(projectDays);
-
-            System.out.println("What types of adverts would you like");
-            //GET MAMBERS SALARIES
-            estimatedCosts = (estimateCosts.baseStaffCost()) * testProject.getNumberOfDays();
-            System.out.println("The cost of the staff hours is £" + estimatedCosts);
         }
 }

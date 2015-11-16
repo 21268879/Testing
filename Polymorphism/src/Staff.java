@@ -2,6 +2,7 @@ public class Staff{
         private String staffMemberId;
         private int projectID;
         private double memberSalary;
+        private double basicStaffSalary;
 
         public Staff (){
         }
@@ -24,4 +25,5 @@ public class Staff{
         public void setMemberSalary(double memberSalary) {
                 this.memberSalary = memberSalary;
         }
+
 }

@@ -1,23 +1,36 @@
 import java.util.ArrayList;
 
-public class AdvertType {	
-    private int advertType;
-    private ArrayList<Staff> projectStaffList;
-    //Adding new features
-	
-    public int getAdvertType() {
-        return advertType;
-    }
+public class AdvertType {
+    private String advertName;
+    private int projectID;
+    private double advertPurchasingStaffCost = 0.0;
+    private double advertCopyrightCosts = 0.0;
+    private double advertSpaceCost = 0.0;
 
-    public void setAdvertType(int advertType) {
-        this.advertType = advertType;
-    }
 
-    public ArrayList<Staff> getProjectStaffList() {
-        return projectStaffList;
+    public double getAdvertSpaceCosts() {
+        return advertSpaceCost;
     }
-
-    public void setProjectStaffList(ArrayList<Staff> projectStaffList) {
-        this.projectStaffList = projectStaffList;
+    public void setAdvertSpaceCosts(double advertSpaceCosts) {
+        this.advertSpaceCost = advertSpaceCosts;
+    }
+    public double getAdvertCopyrightCosts() {
+        return advertCopyrightCosts;
+    }
+    public void setAdvertCopyrightCosts(double advertCopyrightCosts) {
+        this.advertCopyrightCosts = advertCopyrightCosts;
+    }
+    public double getAdvertPurchasingStaff() {
+        return advertPurchasingStaffCost;
+    }
+    public void setAdvertPurchasingStaff(double advertPurchasingStaff) {
+        this.advertPurchasingStaffCost = advertPurchasingStaff;
+    }
+    public void setProjectID(int project){ this.projectID = project; }
+    public int getProjectID(){
+        return projectID;
+    }
+    public String getAdvertName() {
+        return advertName;
     }
 }
