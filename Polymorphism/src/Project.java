@@ -1,13 +1,17 @@
+import java.util.Date;
+import java.time.*;
+
+
 import java.util.ArrayList;
 
 public class Project {
-    private String startDate;
-    private String endDate;
-    private double projectHours =60;
     private int projectID = 45456;
+    private Date startDate;
+    private Date endDate;
+    private long difference;
+    private long projectHours;
     private double costEstimate;
     private ArrayList<String> projectAdverts= new ArrayList<>();
-
 
         public void populateArrayList(String chosenAd) {
             projectAdverts.add(chosenAd);
@@ -18,13 +22,15 @@ public class Project {
         }
 
     //GETTERS
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
-    public String getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
-    public double getHours() {
+    public long getHours() {
+        this.difference = this.startDate.getTime() - this.endDate.getTime();
+        this.projectHours = this.difference / (-3600000);
         return projectHours;
     }
     public int getProjectID() {
@@ -38,14 +44,11 @@ public class Project {
     }
 
     //SETTERS
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
-    public void setHours(double numberOfHours) {
-        this.projectHours = numberOfHours;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
     public void setCostEstimate(double costEstimate) {
         this.costEstimate = costEstimate;
@@ -53,4 +56,8 @@ public class Project {
     public void setProjectAdverts(ArrayList<String> projectAdverts) {
         this.projectAdverts = projectAdverts;
     }
+
+
 }
+//DateTime date = DateTime.parse("04/02/2011 20:27:05",
+//DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss"));
