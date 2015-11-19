@@ -28,9 +28,11 @@ public class Project {
     public Date getEndDate() {
         return endDate;
     }
+
+    //EACH DAY COUNTS AS 8 WORKING HOURS
     public long getHours() {
         this.difference = this.startDate.getTime() - this.endDate.getTime();
-        this.projectHours = this.difference / (-3600000);
+        this.projectHours = ((this.difference - (-57600000))/ -3600000);
         return projectHours;
     }
     public int getProjectID() {
