@@ -11,6 +11,7 @@ public class Project {
     private long projectHours;
     private double basicStaffCost;
     private double costEstimate;
+    private double costEstimate2;
 
 
         //GETTERS
@@ -32,6 +33,9 @@ public class Project {
         }
         public double getCostEstimate() {
             return costEstimate;
+        }
+        public double getCostEstimate2() {
+            return costEstimate2;
         }
         //SETTERS
         public void setStartDate(Date startDate) {
@@ -57,5 +61,8 @@ public class Project {
             testAdmin.setMemberSalary(prHours);
             testAdvertising.setMemberSalary(prHours);
             this.basicStaffCost = testAdvertising.getPay()+testManager.getPay()+testAdmin.getPay();
+        }
+        public void setCostEstimate2() {
+            this.costEstimate2 = basicStaffCost + costEstimate;
         }
 }

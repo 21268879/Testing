@@ -1,40 +1,38 @@
 import java.util.ArrayList;
 
 public class AdvertType {
-    private double advertPurchasingStaffCost = 0.0;
-    private double advertCopyrightCosts = 0.0;
-    private double advertSpaceCost = 0.0;
-
+    private double advertCopyrightCostsL = 750;
+    private double advertCopyrightCostsH = 1500.0;
+    private double advertSpaceCostTV = 1800;
+    private double advertSpaceCostR = 900;
+    private double purchasingStaffSalary = 20.60;
 
 
     public double calculateWeb() {
-        WebBasedAdvert testWeb = new WebBasedAdvert();
-        double webBased = 300.50;
-        return webBased;
+        return 0;
     }
 
     public double calculateEmail() {
-        double emailAd = 100.50;
-        return emailAd;
+        return advertCopyrightCostsL;
     }
 
-    public double calculateTV() {
-        double tvAd = 1200.50;
+    public double calculateTV(double prHours) {
+        double tvAd = advertCopyrightCostsH +advertSpaceCostTV+(prHours*this.purchasingStaffSalary);
         return tvAd;
     }
 
-    public double calculateRadio() {
-        double radioAd = 400.50;
+    public double calculateRadio(double prHours) {
+        double radioAd = advertSpaceCostR + advertCopyrightCostsL+ (prHours*this.purchasingStaffSalary);
         return radioAd;
     }
 
     public double calculateNewspaper() {
-        double newspaperAd = 50.50;
+        double newspaperAd = advertCopyrightCostsL;
         return newspaperAd;
     }
 
     public double calculateMagasine() {
-        double magasineAd = 150.50;
+        double magasineAd = advertCopyrightCostsH;
         return magasineAd;
     }
 }

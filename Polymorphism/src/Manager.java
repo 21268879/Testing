@@ -52,6 +52,8 @@ public class Manager extends Staff{
                 testProject.setDifference();
                 //CALCULATE HOURS
                 testProject.setHours();
+                //SET BASIC STAFF COST
+                testProject.setBasicStaffCost(testProject.getHours());
                 x = 6;
             } else if (projectID != testProject.getProjectID())
                 System.out.println("The project ID does not exist.");
@@ -70,9 +72,9 @@ public class Manager extends Staff{
                             break;
                         case "Email": testProject.setCostEstimate(calculate.calculateEmail());
                             break;
-                        case "TV": testProject.setCostEstimate(calculate.calculateTV());
+                        case "TV": testProject.setCostEstimate(calculate.calculateTV(testProject.getHours()));
                             break;
-                        case "Radio":testProject.setCostEstimate(calculate.calculateRadio());
+                        case "Radio":testProject.setCostEstimate(calculate.calculateRadio(testProject.getHours()));
                             break;
                         case "Newspaper":testProject.setCostEstimate(calculate.calculateNewspaper());
                             break;
@@ -81,7 +83,8 @@ public class Manager extends Staff{
                     }
 
                     if(i < 5){
-                        System.out.println("The current project cost is £"+ testProject.getCostEstimate());
+                        testProject.setCostEstimate2();
+                        System.out.println("Current cost of the project is £"+ testProject.getCostEstimate2());
                         System.out.println("Would you like to ad more advert types, answer yes or no.");
                         moreAds = sc.nextLine();
 
@@ -95,9 +98,8 @@ public class Manager extends Staff{
                     }
                 }
         }
-        testProject.setBasicStaffCost(testProject.getHours()); //BASIC STAFF COST
-        System.out.println("Estimated cost of your project is £"+ testProject.getCostEstimate());
+
+        System.out.println("Estimated cost of your project is £"+ testProject.getCostEstimate2());
         System.out.println("Hours needed for project: " +testProject.getHours());
-        System.out.println("And the costs of basic staff is £" + testProject.getBasicStaffCost());
     }
 }
