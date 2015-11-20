@@ -8,7 +8,9 @@ import java.util.Date;
 
 public class Calculator {
 
+
     public double calculateWeb(){
+        WebBasedAdvert testWeb = new WebBasedAdvert();
         double webBased = 300.50;
         return webBased;
     }

@@ -1,9 +1,14 @@
 
 public class PurchasingStaff extends Staff{
-    private static final double PURCHASINGSALARY = 20.60;
-
-    @Override
+    private static final double memberSalary = 20.60;
+    private double pay;
     public double getMemberSalary(){
-        return PURCHASINGSALARY;
+        return memberSalary;
+    }
+    public void setMemberPay(double projectHr){
+        this.pay = projectHr * this.memberSalary;
+    }
+    public double getPay() {
+        return pay;
     }
 }

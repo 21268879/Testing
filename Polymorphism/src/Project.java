@@ -1,6 +1,7 @@
 import java.util.Date;
 import java.time.*;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class Project {
     private int projectID = 45456;
@@ -8,8 +9,9 @@ public class Project {
     private Date endDate;
     private long difference;
     private long projectHours;
+    private double basicStaffCost;
     private double costEstimate;
-    private ArrayList<String> projectAdverts= new ArrayList<>();
+
 
         //GETTERS
         public Date getStartDate() {
@@ -18,10 +20,11 @@ public class Project {
         public Date getEndDate() {
             return endDate;
         }
+        public double getBasicStaffCost() {
+            return basicStaffCost;
+        }
         //EACH DAY COUNTS AS 8 WORKING HOURS
         public long getHours() {
-            this.difference = this.startDate.getTime() - this.endDate.getTime();
-            this.projectHours = ((this.difference - (-57600000))/ -3600000);
             return projectHours;
         }
         public int getProjectID() {
@@ -30,9 +33,6 @@ public class Project {
         public double getCostEstimate() {
             return costEstimate;
         }
-        public ArrayList<String> getProjectAdverts() {
-            return projectAdverts;
-        }
         //SETTERS
         public void setStartDate(Date startDate) {
             this.startDate = startDate;
@@ -40,14 +40,22 @@ public class Project {
         public void setEndDate(Date endDate) {
             this.endDate = endDate;
         }
+        public void setDifference(){
+            this.difference = this.endDate.getTime() - this.startDate.getTime();
+        }
+        public void setHours(){
+            this.projectHours = (TimeUnit.DAYS.convert(this.difference, TimeUnit.MILLISECONDS))*8;
+        }
         public void setCostEstimate(double costEstimate) {
             this.costEstimate += costEstimate;
         }
-        public void setProjectAdverts(ArrayList<String> projectAdverts) {
-            this.projectAdverts = projectAdverts;
+        public void setBasicStaffCost(double prHours){
+            Manager testManager = new Manager();
+            Administrator testAdmin = new Administrator();
+            AdvertisingStaff testAdvertising = new AdvertisingStaff();
+            testManager.setMemberSalary(prHours);
+            testAdmin.setMemberSalary(prHours);
+            testAdvertising.setMemberSalary(prHours);
+            this.basicStaffCost = testAdvertising.getPay()+testManager.getPay()+testAdmin.getPay();
         }
-
-
 }
-//DateTime date = DateTime.parse("04/02/2011 20:27:05",
-//DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss"));

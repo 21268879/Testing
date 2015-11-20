@@ -2,10 +2,7 @@ public class Staff{
         private String staffMemberId;
         private int projectID;
         private double memberSalary;
-        private double basicStaffSalary;
-
-        public Staff (){
-        }
+        private double pay;
 
         public String getStaffMemberId() {
                 return staffMemberId;
@@ -19,11 +16,12 @@ public class Staff{
         public void setProjectID(int projectID) {
                 this.projectID = projectID;
         }
-        public double getMemberSalary() {
-                return memberSalary;
+
+        public void setMemberPay(double projectHr){
+                pay = projectHr * memberSalary;
         }
-        public void setMemberSalary(double memberSalary) {
-                this.memberSalary = memberSalary;
+        public double getPay() {
+                return pay;
         }
 
 }

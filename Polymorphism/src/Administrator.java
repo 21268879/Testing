@@ -1,7 +1,13 @@
 public class Administrator extends Staff {
-    private static final double ADMINISTRATIONSALARY = 17.40;
-    @Override
+    private static final double memberSalary = 17.40;
+    private double pay;
     public double getMemberSalary(){
-        return ADMINISTRATIONSALARY;
+        return memberSalary;
+    }
+    public void setMemberSalary(double projectHr){
+        this.pay = projectHr * this.memberSalary;
+    }
+    public double getPay() {
+        return pay;
     }
 }
