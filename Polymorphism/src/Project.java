@@ -1,6 +1,4 @@
 import java.util.Date;
-import java.time.*;
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class Project {
@@ -12,7 +10,6 @@ public class Project {
     private double basicStaffCost;
     private double costEstimate;
     private double costEstimate2;
-
 
         //GETTERS
         public Date getStartDate() {
@@ -53,14 +50,15 @@ public class Project {
         public void setCostEstimate(double costEstimate) {
             this.costEstimate += costEstimate;
         }
-        public void setBasicStaffCost(double prHours){
+
+        public void setBasicStaffCost(long prHours){
             Manager testManager = new Manager();
             Administrator testAdmin = new Administrator();
             AdvertisingStaff testAdvertising = new AdvertisingStaff();
-            testManager.setMemberSalary(prHours);
-            testAdmin.setMemberSalary(prHours);
-            testAdvertising.setMemberSalary(prHours);
-            this.basicStaffCost = testAdvertising.getPay()+testManager.getPay()+testAdmin.getPay();
+            testManager.setMemberPaycheck(prHours);
+            testAdmin.setMemberPaycheck(prHours);
+            testAdvertising.setMemberPaycheck(prHours);
+            this.basicStaffCost = testAdvertising.getMemberPay()+testManager.getMemberPay()+testAdmin.getMemberPay();
         }
         public void setCostEstimate2() {
             this.costEstimate2 = basicStaffCost + costEstimate;

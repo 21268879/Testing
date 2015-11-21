@@ -1,28 +1,30 @@
-import java.util.ArrayList;
 
 public class AdvertType {
     private double advertCopyrightCostsL = 750;
     private double advertCopyrightCostsH = 1500.0;
     private double advertSpaceCostTV = 1800;
     private double advertSpaceCostR = 900;
-    private double purchasingStaffSalary = 20.60;
 
 
     public double calculateWeb() {
-        return 0;
+        return advertCopyrightCostsH;
     }
 
     public double calculateEmail() {
         return advertCopyrightCostsL;
     }
 
-    public double calculateTV(double prHours) {
-        double tvAd = advertCopyrightCostsH +advertSpaceCostTV+(prHours*this.purchasingStaffSalary);
+    public double calculateTV(long prHours) {
+        PurchasingStaff testPurchasingStaff = new PurchasingStaff();
+        testPurchasingStaff.setMemberPaycheck(prHours);
+        double tvAd = advertCopyrightCostsH + advertSpaceCostTV + testPurchasingStaff.getMemberPay();
         return tvAd;
     }
 
-    public double calculateRadio(double prHours) {
-        double radioAd = advertSpaceCostR + advertCopyrightCostsL+ (prHours*this.purchasingStaffSalary);
+    public double calculateRadio(long prHours) {
+        PurchasingStaff testPurchasingStaff = new PurchasingStaff();
+        testPurchasingStaff.setMemberPaycheck(prHours);
+        double radioAd = advertSpaceCostR + advertCopyrightCostsL + testPurchasingStaff.getMemberPay();
         return radioAd;
     }
 
@@ -36,45 +38,3 @@ public class AdvertType {
         return magasineAd;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*public double getAdvertSpaceCosts() {
-        return advertSpaceCost;
-    }
-    public void setAdvertSpaceCosts(double advertSpaceCosts) {
-        this.advertSpaceCost = advertSpaceCosts;
-    }
-    public double getAdvertCopyrightCosts() {
-        return advertCopyrightCosts;
-    }
-    public void setAdvertCopyrightCosts(double advertCopyrightCosts) {
-        this.advertCopyrightCosts = advertCopyrightCosts;
-    }
-    public double getAdvertPurchasingStaff() {
-        return advertPurchasingStaffCost;
-    }
-    public void setAdvertPurchasingStaff(double advertPurchasingStaff) {
-        this.advertPurchasingStaffCost = advertPurchasingStaff;
-    }
-    public void setProjectID(int project){ this.projectID = project; }
-    public int getProjectID(){
-        return projectID;
-    }
-    public String getAdvertName() {
-//        return advertName;*/
-//    }
-//}
