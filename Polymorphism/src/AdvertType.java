@@ -1,10 +1,8 @@
-
 public class AdvertType {
     private double advertCopyrightCostsL = 750;
     private double advertCopyrightCostsH = 1500.0;
     private double advertSpaceCostTV = 1800;
     private double advertSpaceCostR = 900;
-
 
     public double calculateWeb() {
         return advertCopyrightCostsH;

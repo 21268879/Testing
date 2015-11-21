@@ -11,25 +11,12 @@ public class Project {
     private double costEstimate;
     private double costEstimate2;
 
-        //GETTERS
-        public Date getStartDate() {
-            return startDate;
-        }
-        public Date getEndDate() {
-            return endDate;
-        }
-        public double getBasicStaffCost() {
-            return basicStaffCost;
-        }
         //EACH DAY COUNTS AS 8 WORKING HOURS
         public long getHours() {
             return projectHours;
         }
         public int getProjectID() {
             return projectID;
-        }
-        public double getCostEstimate() {
-            return costEstimate;
         }
         public double getCostEstimate2() {
             return costEstimate2;

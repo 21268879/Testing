@@ -1,4 +1,3 @@
-
 public class Staff{
         double memberSalary;
         double memberPaycheck;

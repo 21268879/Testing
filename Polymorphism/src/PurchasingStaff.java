@@ -1,4 +1,3 @@
-
 public class PurchasingStaff extends Staff{
     public void setMemberPaycheck(long projectHours){
         Salary purchasingSalary = new Salary();

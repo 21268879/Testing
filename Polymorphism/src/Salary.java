@@ -1,4 +1,3 @@
-
 public class Salary {
     private double managerStaffSalary = 35.50;
     private double advertisingStaffSalary = 25.50;

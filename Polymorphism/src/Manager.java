@@ -23,10 +23,10 @@ public class Manager extends Staff{
                 {
                     SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");    //DATE FORMATTER FOR PASING FORMATED STRINGS
                     System.out.println("Enter the starting date for the project in yyyy-MM-dd format:"); //GET START DATE
-                    String startDate = sc.nextLine();//sc.nextLine();
+                    String startDate = sc.nextLine();
                     try{
                         testProject.setStartDate(sf.parse(startDate));
-                    }catch (ParseException e) {
+                    }catch (ParseException wrongDateFormat) {
                         System.out.println("Wrong start date format, please use the yyyy-MM-dd format when entering the project start dates.");
                     }
 
@@ -34,7 +34,7 @@ public class Manager extends Staff{
                     String endDate = sc.nextLine();
                     try{
                         testProject.setEndDate(sf.parse(endDate));
-                    }catch(ParseException e2) {
+                    }catch(ParseException wrongDateFormat2) {
                         System.out.println("Wrong end date format, please use the yyyy-MM-dd format when entering the project end dates.");
                     }
                     //CALCULATE MILLISECONDS BETWEEN Those two dates

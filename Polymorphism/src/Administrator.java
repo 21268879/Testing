@@ -1,4 +1,3 @@
-
 public class Administrator extends Staff {
     public void setMemberPaycheck(long projectHours){
         Salary adminSalary = new Salary();
