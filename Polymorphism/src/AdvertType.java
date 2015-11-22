@@ -31,8 +31,8 @@ public class AdvertType {
         return newspaperAd;
     }
 
-    public double calculateMagasine() {
-        double magasineAd = advertCopyrightCostsH;
-        return magasineAd;
+    public double calculateMagazine() {
+        double magazineAd = advertCopyrightCostsH;
+        return magazineAd;
     }
 }

@@ -2,7 +2,6 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class Project {
-    private int projectID = 45456;
     private Date startDate;
     private Date endDate;
     private long difference;
@@ -14,9 +13,6 @@ public class Project {
         //EACH DAY COUNTS AS 8 WORKING HOURS
         public long getHours() {
             return projectHours;
-        }
-        public int getProjectID() {
-            return projectID;
         }
         public double getCostEstimate2() {
             return costEstimate2;
