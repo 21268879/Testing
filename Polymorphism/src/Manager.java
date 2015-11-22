@@ -60,7 +60,7 @@ public class Manager extends Staff{
                             System.out.println("Enter the advert type you would like to add: ");
                             newAdvert = sc.nextLine();
                             adPresent = Arrays.asList(advertsAr).contains(newAdvert);
-                        }while(adPresent == true);
+                        }while(adPresent == true);   //TODO
 
                         advertsAr[i] = newAdvert;
                         switch (advertsAr[i]) {
